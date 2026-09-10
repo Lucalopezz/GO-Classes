@@ -5,5 +5,6 @@ func main() {
 	// class02()
 	// class03()
 	// class04()
-	class05()
+	// class05()
+	class06()
 }
