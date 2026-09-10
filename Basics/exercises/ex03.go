@@ -1,19 +1,19 @@
 /*
-Exercício 03 — Baixa de estoque
+Exercise 03 — Inventory deduction
 
-Implemente a rotina de venda de uma loja. O estoque é um map em que o código
-do produto aponta para um produto armazenado por ponteiro.
+Implement a store's sales routine. The inventory is a map where the product
+code points to a product stored through a pointer.
 
-A função deve:
+The function must:
 
-1. Retornar erro se o código não existir.
-2. Retornar erro se a quantidade solicitada for menor ou igual a zero.
-3. Retornar erro se não houver estoque suficiente.
-4. Diminuir o estoque e retornar o valor total da venda em centavos.
+1. Return an error if the code does not exist.
+2. Return an error if the requested quantity is less than or equal to zero.
+3. Return an error if there is not enough stock.
+4. Deduct the stock and return the sale's total value in cents.
 
-Crie também uma função para imprimir o estoque restante e faça testes com
-vendas válidas e inválidas. Use struct, map, ponteiro, método ou função
-auxiliar e tratamento explícito de erros.
+Also create a function to print the remaining inventory and test both valid
+and invalid sales. Use a struct, map, pointer, method or helper function,
+and explicit error handling.
 */
 package main
 
@@ -25,10 +25,10 @@ type Product struct {
 }
 
 func processSale(inventory map[string]*Product, code string, quantity int) (int, error) {
-	// TODO: implemente o exercício.
+	// TODO: implement the exercise.
 	panic("not implemented")
 }
 
 func ex03() {
-	// TODO: monte um estoque, processe vendas e exiba os erros quando ocorrerem.
+	// TODO: build an inventory, process sales, and display errors when they occur.
 }

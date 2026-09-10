@@ -1,19 +1,18 @@
 /*
-Exercício 04 — Fila de atendimento prioritário
+Exercise 04 — Priority support queue
 
-Crie uma função que retire da fila o próximo chamado a ser atendido.
+Create a function that removes the next ticket to be handled from the queue.
 
-As prioridades possíveis são "urgente", "alta" e "normal". A prioridade
-mais alta deve ser atendida primeiro. Quando dois chamados tiverem a mesma
-prioridade, preserve a ordem em que chegaram.
+The possible priorities are "urgent", "high", and "normal". The highest
+priority must be handled first. When two tickets have the same priority,
+preserve the order in which they arrived.
 
-A função deve retornar o chamado escolhido, a fila restante e um erro para
-uma fila vazia ou para uma prioridade inválida. Use switch para definir o
-peso das prioridades e percorra o slice apenas uma vez para localizar o
-próximo chamado.
+The function must return the selected ticket, the remaining queue, and an
+error for an empty queue or an invalid priority. Use switch to define the
+priority weights and iterate over the slice only once to find the next ticket.
 
-Depois, simule vários atendimentos até a fila ficar vazia e mostre a ordem
-em que os clientes foram chamados.
+Then simulate multiple support interactions until the queue is empty and
+display the order in which the customers were called.
 */
 package main
 
@@ -24,10 +23,10 @@ type Ticket struct {
 }
 
 func nextTicket(tickets []Ticket) (Ticket, []Ticket, error) {
-	// TODO: implemente o exercício.
+	// TODO: implement the exercise.
 	panic("not implemented")
 }
 
 func ex04() {
-	// TODO: crie uma fila de chamados e simule o atendimento.
+	// TODO: create a ticket queue and simulate the support process.
 }

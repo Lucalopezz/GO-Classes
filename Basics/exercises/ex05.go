@@ -1,20 +1,19 @@
 /*
-Exercício 05 — Fechamento de carrinho com políticas de desconto
+Exercise 05 — Cart checkout with discount policies
 
-Implemente o fechamento de um carrinho de compras usando centavos inteiros
-para evitar problemas de precisão com float64.
+Implement a shopping cart checkout using integer cents to avoid precision
+problems with float64.
 
- 1. Some o subtotal de todos os itens.
- 2. Valide que preço e quantidade não sejam negativos e que a quantidade seja
-    maior que zero.
- 3. Aplique uma política de desconto recebida por uma interface.
- 4. Nunca permita que o total final fique negativo.
+ 1. Calculate the subtotal of all items.
+ 2. Validate that the price and quantity are not negative and that the
+    quantity is greater than zero.
+ 3. Apply a discount policy received through an interface.
+ 4. Never allow the final total to become negative.
 
-Crie pelo menos duas políticas concretas, por exemplo uma de percentual e
-outra de cupom com valor fixo, implementando o método exigido pela interface.
-Faça o checkout com cada política e também sem desconto. Retorne erros para
-um carrinho inválido e use métodos sempre que eles deixarem o código mais
-claro.
+Create at least two concrete policies, such as a percentage discount and a
+fixed-value coupon, implementing the method required by the interface. Test
+the checkout with each policy and also without a discount. Return errors for
+an invalid cart and use methods whenever they make the code clearer.
 */
 package main
 
@@ -29,10 +28,10 @@ type DiscountPolicy interface {
 }
 
 func checkout(items []CartItem, policy DiscountPolicy) (int, error) {
-	// TODO: implemente o exercício.
+	// TODO: implement the exercise.
 	panic("not implemented")
 }
 
 func ex05() {
-	// TODO: crie itens, implemente políticas de desconto e teste o checkout.
+	// TODO: create items, implement discount policies, and test the checkout.
 }

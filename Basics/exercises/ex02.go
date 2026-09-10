@@ -1,28 +1,28 @@
 /*
-Exercício 02 — Normalização de nomes de clientes
+Exercise 02 — Customer name normalization
 
-Você recebeu nomes digitados por usuários em um formulário. Os dados podem
-conter espaços extras, letras maiúsculas/minúsculas e nomes repetidos.
+You received names entered by users in a form. The data may contain extra
+spaces, mixed letter casing, and duplicate names.
 
-Implemente uma função que:
+Implement a function that:
 
- 1. Remova espaços no começo e no fim de cada nome.
- 2. Reduza sequências de espaços internos para apenas um espaço.
- 3. Formate cada palavra com a primeira letra maiúscula, preservando acentos.
- 4. Elimine duplicatas sem diferenciar maiúsculas de minúsculas, mantendo a
-    ordem da primeira ocorrência.
+ 1. Removes spaces at the beginning and end of each name.
+ 2. Reduces sequences of internal spaces to a single space.
+ 3. Formats each word with an uppercase first letter while preserving accents.
+ 4. Removes duplicates case-insensitively while preserving the order of the
+    first occurrence.
 
-Use []rune para trabalhar corretamente com Unicode e strings.Builder ou
-funções do pacote strings quando fizer sentido. Teste com nomes como
-"  ana   silva", "ANA SILVA" e "joão  souza".
+Use []rune to work correctly with Unicode and strings.Builder or functions
+from the strings package when appropriate. Test with names such as
+"  ana   silva", "ANA SILVA", and "joão  souza".
 */
 package main
 
 func normalizeClientNames(names []string) []string {
-	// TODO: implemente o exercício.
+	// TODO: implement the exercise.
 	panic("not implemented")
 }
 
 func ex02() {
-	// TODO: crie uma lista com entradas irregulares e mostre o resultado.
+	// TODO: create a list with irregular entries and display the result.
 }
