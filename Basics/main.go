@@ -7,4 +7,9 @@ func main() {
 	// class04()
 	// class05()
 	// class06()
+	//
+	// GO routines
+	// class07()
+	// class08()
+	class09()
 }
