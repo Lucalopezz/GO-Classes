@@ -11,5 +11,12 @@ func main() {
 	// GO routines
 	// class07()
 	// class08()
-	class09()
+	// class09()
+	//
+	// Channels
+	// class10()
+	// class11()
+	//
+	// Generics
+	class12()
 }
