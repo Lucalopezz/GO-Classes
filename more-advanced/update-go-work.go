@@ -3,6 +3,9 @@
 // the main function is used to update the go.work file with all the modules found in the current directory and its subdirectories.
 package main
 
+// For build a script without a module, you need to use this command
+// GO111MODULE=off go build -o update-go-work update-go-work.go
+
 import (
 	"fmt"
 	"os"
