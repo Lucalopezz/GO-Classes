@@ -6,4 +6,5 @@ use (
 	./2-slices-arrays-pointers/2.2-copia-simples
 	./2-slices-arrays-pointers/2.3-deep-copy
 	./2-slices-arrays-pointers/2.4-pointers
+	./2-slices-arrays-pointers/2.5-deep-copy-pointers
 )
