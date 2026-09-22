@@ -1,3 +1,9 @@
 go 1.27.1
 
-use ./1-modularizaton
+use (
+	./1-modularizaton
+	./2-slices-arrays-pointers/2.1-intro
+	./2-slices-arrays-pointers/2.2-copia-simples
+	./2-slices-arrays-pointers/2.3-deep-copy
+	./2-slices-arrays-pointers/2.4-pointers
+)
