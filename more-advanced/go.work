@@ -1,6 +1,7 @@
 go 1.27.1
 
 use (
+	"./2-slices-arrays-pointers/2.6-Map,filter,reduce"
 	./1-modularizaton
 	./2-slices-arrays-pointers/2.1-intro
 	./2-slices-arrays-pointers/2.2-copia-simples
