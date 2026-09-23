@@ -9,4 +9,7 @@ use (
 	./2-slices-arrays-pointers/2.4-pointers
 	./2-slices-arrays-pointers/2.5-deep-copy-pointers
 	./3-Maps/3.1-intro
+	./3-Maps/3.2-Race-Condition
+	./3-Maps/3.3-Mutex
+	./3-Maps/3.4-sync-map
 )
