@@ -14,4 +14,5 @@ use (
 	./3-Maps/3.4-sync-map
 	./3-Maps/3.5-Cache-Mutex
 	./3-Maps/3.6-Cache-SyncMap
+	./4-Channels-and-concurency/4.1-intro
 )
