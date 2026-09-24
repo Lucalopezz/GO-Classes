@@ -12,4 +12,6 @@ use (
 	./3-Maps/3.2-Race-Condition
 	./3-Maps/3.3-Mutex
 	./3-Maps/3.4-sync-map
+	./3-Maps/3.5-Cache-Mutex
+	./3-Maps/3.6-Cache-SyncMap
 )
