@@ -17,4 +17,5 @@ use (
 	./4-Channels-and-concurency/4.1-intro
 	./4-Channels-and-concurency/4.2-buffed-channels
 	./4-Channels-and-concurency/4.3-Directions
+	./4-Channels-and-concurency/4.4-Error-Group
 )
