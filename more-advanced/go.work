@@ -1,4 +1,4 @@
-go 1.27.1
+go 1.27.2
 
 use (
 	"./2-slices-arrays-pointers/2.6-Map,filter,reduce"
@@ -18,4 +18,6 @@ use (
 	./4-Channels-and-concurency/4.2-buffed-channels
 	./4-Channels-and-concurency/4.3-Directions
 	./4-Channels-and-concurency/4.4-Error-Group
+	./4-Channels-and-concurency/4.5-Fan_out-Fan_in
+	./4-Channels-and-concurency/4.6-Pipeline
 )
