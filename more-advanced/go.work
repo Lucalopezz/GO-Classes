@@ -21,4 +21,5 @@ use (
 	./4-Channels-and-concurency/4.5-Fan_out-Fan_in
 	./4-Channels-and-concurency/4.6-Pipeline
 	./4-Channels-and-concurency/4.7-Select
+	./4-Channels-and-concurency/4.8-Agendador
 )
