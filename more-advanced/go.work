@@ -21,6 +21,7 @@ use (
 	./4-Channels-and-concurency/4.5-Fan_out-Fan_in
 	./4-Channels-and-concurency/4.6-Pipeline
 	./4-Channels-and-concurency/4.7-Select
-	./4-Channels-and-concurency/4.8-Agendador
+	./4-Channels-and-concurency/4.8-Scheduler/
 	./4-Channels-and-concurency/4.9-Broadcast
+	./5-Advanced-Sync/5.1-RwMutex
 )
