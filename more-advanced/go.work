@@ -26,4 +26,6 @@ use (
 	./5-Advanced-Sync/5.1-RwMutex
 	./5-Advanced-Sync/5.2-once
 	./5-Advanced-Sync/5.3-cond
+	./5-Advanced-Sync/5.4-cond-connections
+	./5-Advanced-Sync/5.5-cond-broadcast
 )
