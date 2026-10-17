@@ -32,4 +32,5 @@ use (
 	./5-Advanced-Sync/5.7-pool-comparative
 	./5-Advanced-Sync/5.8-atomic
 	./5-Advanced-Sync/5.9-MutexXAtomic
+	./6-interfaces-generics/6.1-interfaces
 )
