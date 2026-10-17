@@ -31,4 +31,5 @@ use (
 	./5-Advanced-Sync/5.6-pool
 	./5-Advanced-Sync/5.7-pool-comparative
 	./5-Advanced-Sync/5.8-atomic
+	./5-Advanced-Sync/5.9-MutexXAtomic
 )
