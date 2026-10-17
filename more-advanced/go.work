@@ -29,4 +29,6 @@ use (
 	./5-Advanced-Sync/5.4-cond-connections
 	./5-Advanced-Sync/5.5-cond-broadcast
 	./5-Advanced-Sync/5.6-pool
+	./5-Advanced-Sync/5.7-pool-comparative
+	./5-Advanced-Sync/5.8-atomic
 )
