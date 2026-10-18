@@ -33,4 +33,5 @@ use (
 	./5-Advanced-Sync/5.8-atomic
 	./5-Advanced-Sync/5.9-MutexXAtomic
 	./6-interfaces-generics/6.1-interfaces
+	./6-interfaces-generics/6.2-empty-interface
 )
