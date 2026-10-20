@@ -1,4 +1,4 @@
-go 1.27.2
+go 1.27.3
 
 use (
 	"./2-slices-arrays-pointers/2.6-Map,filter,reduce"
@@ -36,4 +36,7 @@ use (
 	./6-interfaces-generics/6.2-empty-interface
 	./6-interfaces-generics/6.3-reflect
 	./6-interfaces-generics/6.4-reflectXcast
+	./6-interfaces-generics/6.5-generics
+	./6-interfaces-generics/6.6-contraints-num
+	./6-interfaces-generics/6.7-constraints-pre-definidas
 )
