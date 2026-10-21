@@ -44,4 +44,5 @@ use (
 	./7-contex/7.1-intro
 	./7-contex/7.2-cancelamento
 	./7-contex/7.3-timeout
+	./7-contex/7.4-RequestHTTP
 )
