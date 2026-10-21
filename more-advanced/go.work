@@ -41,4 +41,7 @@ use (
 	./6-interfaces-generics/6.7-constraints-pre-definidas
 	./6-interfaces-generics/6.8-ex-busca
 	./6-interfaces-generics/6.9-cache-generics
+	./7-contex/7.1-intro
+	./7-contex/7.2-cancelamento
+	./7-contex/7.3-timeout
 )
