@@ -39,4 +39,6 @@ use (
 	./6-interfaces-generics/6.5-generics
 	./6-interfaces-generics/6.6-contraints-num
 	./6-interfaces-generics/6.7-constraints-pre-definidas
+	./6-interfaces-generics/6.8-ex-busca
+	./6-interfaces-generics/6.9-cache-generics
 )
