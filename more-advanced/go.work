@@ -49,4 +49,8 @@ use (
 	./7-contex/7.6-encadeamento
 	./7-contex/7.7-contexto-personalizado
 	./8-profiling/8.1-cpu
+	./8-profiling/8.2-heap
+	./8-profiling/8.3-allocs
+	./8-profiling/8.4-goroutines
+	./8-profiling/8.5-threads
 )
