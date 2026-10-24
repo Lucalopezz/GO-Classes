@@ -1,7 +1,7 @@
 package main
 
-// Sync.Map is a concurrent map implementation in Go that provides safe access to a map from multiple goroutines without the need for explicit locking.
-// It is part of the sync package and is designed for scenarios where multiple goroutines need to read and write to a shared map concurrently.
+// sync.Map é uma implementação de map concorrente em Go que permite acesso seguro por várias goroutines sem bloqueio explícito.
+// Ele faz parte do pacote sync e foi feito para situações em que várias goroutines precisam ler e escrever concorrentemente em um map compartilhado.
 
 import (
 	"fmt"
@@ -10,36 +10,36 @@ import (
 
 func main() {
 	var (
-		m  sync.Map // Use sync.Map for concurrent access to the map
+		m  sync.Map // Usa sync.Map para acesso concorrente ao map
 		wg sync.WaitGroup
 	)
 
-	// sync.Map itnot the same type as a regular map, so we cannot use the same syntax to add key-value pairs to the map.
-	// Instead, we use the Store method of sync.Map to add a key-value pair to the map.
+	// sync.Map não é do mesmo tipo que um map comum; portanto, não podemos usar a mesma sintaxe para adicionar pares de chave e valor.
+	// Em vez disso, usamos o método Store de sync.Map para adicionar um par de chave e valor ao map.
 
-	// Wait for 100 goroutines to finish before exiting the program
+	// Espera as 100 goroutines terminarem antes de sair do programa
 	wg.Add(100)
 
 	for i := 0; i < 100; i++ {
 		go func() {
 			defer wg.Done()
-			// Make the same thing as the the mutex
-			m.Store(i, i) // Use the Store method of sync.Map to add a key-value pair to the map
+			// Faz o mesmo que o mutex
+			m.Store(i, i) // Usa o método Store de sync.Map para adicionar um par de chave e valor ao map
 		}()
 	}
 
-	wg.Wait() // Wait for all goroutines to finish before exiting the program
+	wg.Wait() // Espera todas as goroutines terminarem antes de sair do programa
 
-	// For does not work with sync.Map, so we use the Range method to iterate over the map
+	// for não funciona com sync.Map; por isso, usamos o método Range para percorrer o map
 	m.Range(func(key, value any) bool {
 		fmt.Printf("%d: %d\n", key, value)
-		return true // Continue iterating over the map
+		return true // Continua percorrendo o map
 	})
 
 	value, ok := m.Load(50)
 	if ok {
-		fmt.Printf("Value for key 50: %d\n", value)
+		fmt.Printf("Valor da chave 50: %d\n", value)
 	} else {
-		fmt.Println("Key 50 not found")
+		fmt.Println("Chave 50 não encontrada")
 	}
 }

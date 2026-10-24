@@ -11,18 +11,18 @@ import (
 
 func worker(id int, wg *sync.WaitGroup) {
 	defer wg.Done()
-	fmt.Println("Worker iniciado: ", id)
+	fmt.Println("Trabalhador iniciado: ", id)
 	time.Sleep(time.Second)
-	fmt.Println("Worker finalizado: ", id)
+	fmt.Println("Trabalhador finalizado: ", id)
 }
 
 func workerWithErrorGroup(id int) error {
-	fmt.Println("Worker iniciado: ", id)
+	fmt.Println("Trabalhador iniciado: ", id)
 	if id == 2 {
-		return errors.New("Erro no worker: " + fmt.Sprint(id))
+		return errors.New("Erro no trabalhador: " + fmt.Sprint(id))
 	}
 	time.Sleep(time.Second)
-	fmt.Println("Worker finalizado: ", id)
+	fmt.Println("Trabalhador finalizado: ", id)
 
 	return nil
 }

@@ -9,7 +9,7 @@ import (
 var pool = sync.Pool{
 	// So vai ser chamado quando o pool estiver vazio e for necessário criar um novo objeto
 	New: func() any {
-		fmt.Println("Creating a new buffer")
+		fmt.Println("Criando um novo buffer")
 		// Retorna o novo objeto que será armazenado no poo (pointer para um bytes.Buffer)
 		return new(bytes.Buffer)
 	},
@@ -22,16 +22,16 @@ func main() {
 	buffer := pool.Get().(*bytes.Buffer)
 
 	// adiciona uma string ao buffer
-	buffer.WriteString("Hello, World!")
+	buffer.WriteString("Olá, mundo!")
 
 	fmt.Println(buffer.String())
 
 	buffer.Reset()   // limpa o buffer antes de devolvê-lo ao pool
 	pool.Put(buffer) // devolve o buffer para o pool
 
-	fmt.Println("====== New buffer from pool ======")
+	fmt.Println("====== Novo buffer do pool ======")
 	buffer2 := pool.Get().(*bytes.Buffer)
-	buffer2.WriteString("Hello, Go!")
+	buffer2.WriteString("Olá, Go!")
 
 	fmt.Println(buffer2.String())
 }

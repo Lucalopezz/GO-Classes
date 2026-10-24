@@ -6,30 +6,30 @@ import (
 )
 
 func sendData(ch chan int) {
-	fmt.Println("Sending data...")
-	ch <- 42 // Send data to the channel
-	fmt.Println("Data sent.")
+	fmt.Println("Enviando dados...")
+	ch <- 42 // Envia dados ao canal
+	fmt.Println("Dados enviados.")
 }
 
 func receiveData(ch chan int) {
-	time.Sleep(500 * time.Millisecond) // Simulate some processing time
-	val := <-ch                        // Receive data from the channel
-	fmt.Println("Received:", val)
+	time.Sleep(500 * time.Millisecond) // Simula algum tempo de processamento
+	val := <-ch                        // Recebe dados do canal
+	fmt.Println("Recebido:", val)
 }
 
 func main() {
-	// Comunication between goroutines is done using channels.
+	// A comunicação entre goroutines é feita por canais.
 	ch := make(chan int)
 
 	for i := 0; i < 5; i++ {
-		go sendData(ch) // Start a goroutine to send data
+		go sendData(ch) // Inicia uma goroutine para enviar dados
 	}
 
-	time.Sleep(1 * time.Second) // Wait for a second to ensure all sends are done
+	time.Sleep(1 * time.Second) // Espera um segundo para garantir que todos os envios terminem
 
 	for i := 0; i < 5; i++ {
-		go receiveData(ch) // Start a goroutine to receive data
+		go receiveData(ch) // Inicia uma goroutine para receber dados
 	}
 
-	time.Sleep(1 * time.Second) // Wait for a second to ensure all receives are done
+	time.Sleep(1 * time.Second) // Espera um segundo para garantir que todos os recebimentos terminem
 }

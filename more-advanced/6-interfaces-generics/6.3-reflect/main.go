@@ -10,30 +10,30 @@ func main() {
 
 	t := reflect.TypeOf(x)
 
-	fmt.Println("Type:", t)
+	fmt.Println("Tipo:", t)
 
 	v := reflect.ValueOf(x)
 
-	fmt.Println("Value:", v)
+	fmt.Println("Valor:", v)
 
-	// Panic: reflect: call of reflect.Value.Int on string Value
+	// Panic: reflect: chamada de reflect.Value.Int em um Value de string
 	// xInt := v.Int()
 
 	if v.CanInt() {
 		xInt := v.Int()
 
-		fmt.Println("Int value:", xInt)
+		fmt.Println("Valor int:", xInt)
 	} else {
-		fmt.Println("Cannot convert to int")
+		fmt.Println("Não é possível converter para int")
 	}
 
 	var y any = 100
-	// Perform type assertion to get the underlying value
+	// Faz uma asserção de tipo para obter o valor subjacente
 	v2 := reflect.ValueOf(&y).Elem()
 
-	// Alter the value of y using reflection
+	// Altera o valor de y usando reflexão
 	v2.Set(reflect.ValueOf(200))
 
-	fmt.Println("New value of y:", y)
-	fmt.Println("Value of v2:", v2.Elem().Int())
+	fmt.Println("Novo valor de y:", y)
+	fmt.Println("Valor de v2:", v2.Elem().Int())
 }

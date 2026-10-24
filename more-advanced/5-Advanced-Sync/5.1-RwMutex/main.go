@@ -24,12 +24,12 @@ func NewCache() *Cache {
 }
 
 func (c *Cache) Set(key string, value any) {
-	logf("Set: Trying to write")
+	logf("Set: tentando escrever")
 	// Lock espera os leitores e qualquer outro escritor liberarem o mutex.
 	// Enquanto houver um escritor aguardando, novas chamadas a RLock bloqueiam
 	// até que esse escritor consiga escrever e libere o mutex.
 	c.mu.Lock()
-	logf("Set: Locked ")
+	logf("Set: bloqueado ")
 	// Simula uma escrita demorada, mantendo o bloqueio durante esse período.
 	time.Sleep(300 * time.Millisecond)
 
@@ -37,15 +37,15 @@ func (c *Cache) Set(key string, value any) {
 
 	// Libera o acesso exclusivo, permitindo que outras operações prossigam.
 	c.mu.Unlock()
-	logf("Set: Unlocked ")
+	logf("Set: desbloqueado ")
 }
 
 func (c *Cache) Get(key string) (any, bool) {
-	logf("Get: Trying to read")
+	logf("Get: tentando ler")
 	// RLock compartilha o bloqueio com outros leitores, mas espera se houver
 	// um escritor com o bloqueio exclusivo ou aguardando para adquiri-lo.
 	c.mu.RLock()
-	logf("Get: Locked ")
+	logf("Get: bloqueado ")
 
 	// Simula uma leitura demorada para tornar a sobreposição dos leitores visível.
 	time.Sleep(100 * time.Millisecond)
@@ -55,7 +55,7 @@ func (c *Cache) Get(key string) (any, bool) {
 	// Libera apenas o bloqueio deste leitor. Um escritor precisa esperar
 	// até que todos os leitores que já adquiriram o bloqueio o liberem.
 	c.mu.RUnlock()
-	logf("Get: Unlocked ")
+	logf("Get: desbloqueado ")
 	return result, ok
 }
 
@@ -83,9 +83,9 @@ func main() {
 	go func() {
 		// Done reduz o contador ao sair da goroutine, mesmo se houver um retorno antecipado.
 		defer wg.Done()
-		logf("Goroutine 1: Trying to read\n")
+		logf("Goroutine 1: tentando ler\n")
 		_, _ = cache.Get("foo")
-		logf("Goroutine 1: Read done\n")
+		logf("Goroutine 1: leitura concluída\n")
 	}()
 
 	// O segundo leitor tenta começar após 10 ms. Na sequência esperada,
@@ -93,9 +93,9 @@ func main() {
 	go func() {
 		defer wg.Done()
 		time.Sleep(10 * time.Millisecond)
-		logf("Goroutine 2: Trying to read\n")
+		logf("Goroutine 2: tentando ler\n")
 		_, _ = cache.Get("foo")
-		logf("Goroutine 2: Read done\n")
+		logf("Goroutine 2: leitura concluída\n")
 	}()
 
 	// O escritor tenta começar após 30 ms e espera os dois leitores terminarem.
@@ -103,9 +103,9 @@ func main() {
 	go func() {
 		defer wg.Done()
 		time.Sleep(30 * time.Millisecond)
-		logf("Goroutine 2: Trying to write\n")
+		logf("Goroutine 2: tentando escrever\n")
 		cache.Set("foo", "baz")
-		logf("Goroutine 2: Write done\n")
+		logf("Goroutine 2: escrita concluída\n")
 	}()
 
 	// O último leitor tenta começar após 300 ms, quando a escrita deve estar em curso.
@@ -113,9 +113,9 @@ func main() {
 	go func() {
 		defer wg.Done()
 		time.Sleep(300 * time.Millisecond)
-		logf("Goroutine 4: Trying to read\n")
+		logf("Goroutine 4: tentando ler\n")
 		_, _ = cache.Get("foo")
-		logf("Goroutine 4: Read done\n")
+		logf("Goroutine 4: leitura concluída\n")
 	}()
 
 	// Os Sleep ajudam a demonstrar a ordem esperada, mas não garantem o agendamento.

@@ -36,13 +36,13 @@ func NewTask[T any](name string, interval time.Duration, action func(T)) *Task[T
 }
 
 func main() {
-	firstTask := NewTask("First Task", 2*time.Second, func(param string) {
-		fmt.Println("Executing first task with param:", param)
+	firstTask := NewTask("Primeira tarefa", 2*time.Second, func(param string) {
+		fmt.Println("Executando a primeira tarefa com parâmetro:", param)
 	})
 
 	firstStopChan := make(chan struct{})
 	finalizeChan := make(chan struct{})
-	go firstTask.Start("Hello", firstStopChan, finalizeChan)
+	go firstTask.Start("Olá", firstStopChan, finalizeChan)
 
 	time.Sleep(10 * time.Second)
 

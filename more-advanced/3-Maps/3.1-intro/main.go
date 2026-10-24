@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	// key vakue pair
+	// par de chave e valor
 
 	myMap := map[string]string{
 		"key1": "value1",
@@ -18,39 +18,39 @@ func main() {
 
 	/*
 		+-----------+-------------------------+
-		| Bucket 0  | [("a", 1), ("e", 5)]    |
+		| Balde 0   | [("a", 1), ("e", 5)]    |
 		+-----------+-------------------------+
-		| Bucket 1  | [("b", 2)]              |
+		| Balde 1   | [("b", 2)]              |
 		+-----------+-------------------------+
-		| Bucket 2  | [("c", 3), ("f", 6)]    |
+		| Balde 2   | [("c", 3), ("f", 6)]    |
 		+-----------+-------------------------+
-		| Bucket 3  | [("d", 4)]              |
+		| Balde 3   | [("d", 4)]              |
 		+-----------+-------------------------+
 	*/
 
-	// This print can be out of order because maps are unordered collections in Go.
+	// Essa impressão pode sair em outra ordem porque maps são coleções sem ordem definida em Go.
 	for key, value := range myMap {
-		fmt.Println("Key:", key, "Value:", value)
+		fmt.Println("Chave:", key, "Valor:", value)
 	}
 
-	// var myMap2 map[string]any // nil map
-	// myMap2["key1"] = "value1" // panic: assignment to entry in nil map
-	myMap2 := map[string]any{} // empty map
-	myMap2["key1"] = "value1"  // works fine
-	// with make
+	// var myMap2 map[string]any // map nil
+	// myMap2["key1"] = "value1" // panic: atribuição a uma entrada em map nil
+	myMap2 := map[string]any{} // map vazio
+	myMap2["key1"] = "value1"  // funciona normalmente
+	// com make
 	myMap3 := make(map[string]any)
-	myMap3["key1"] = "value1" // works fine
+	myMap3["key1"] = "value1" // funciona normalmente
 
-	fmt.Println(myMap2["dontExist"]) // prints <nil>
-	// can cause panic if you try to access a key that doesn't exist and then try to use it as a value
+	fmt.Println(myMap2["dontExist"]) // imprime <nil>
+	// pode causar panic se você tentar acessar uma chave inexistente e depois usá-la como valor
 
 	myValue, ok := myMap2["dontExist"]
-	fmt.Println(myValue, ok) // prints <nil> false
+	fmt.Println(myValue, ok) // imprime <nil> false
 
-	myValue2, ok2 := myMap2["key99"].(int) // type assertion, will panic if the key not exist or the value is not of type int
+	myValue2, ok2 := myMap2["key99"].(int) // asserção de tipo; causará panic se a chave não existir ou o valor não for do tipo int
 	if !ok2 {
-		fmt.Println("Key 'key99' does not exist or is not of type int")
+		fmt.Println("A chave 'key99' não existe ou não é do tipo int")
 	} else {
-		fmt.Println("Value of 'key99':", myValue2)
+		fmt.Println("Valor de 'key99':", myValue2)
 	}
 }

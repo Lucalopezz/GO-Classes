@@ -10,10 +10,10 @@ func worker(ctx context.Context, id int) {
 	for {
 		select {
 		case <-ctx.Done():
-			fmt.Println("Worker encerrando", id)
+			fmt.Println("Trabalhador encerrando", id)
 			return
 		default:
-			fmt.Println("Worker executando", id)
+			fmt.Println("Trabalhador executando", id)
 		}
 	}
 }

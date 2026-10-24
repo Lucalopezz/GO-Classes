@@ -38,16 +38,16 @@ func main() {
 	data, err := fazerRequest(ctx, url)
 	if err != nil {
 		if ctx.Err() == context.DeadlineExceeded {
-			fmt.Println("Request cancelada devido ao tempo limite")
+			fmt.Println("Requisição cancelada devido ao tempo limite")
 			return
 		}
 
 		if ctx.Err() == context.Canceled {
-			fmt.Println("Request cancelada manualmente")
+			fmt.Println("Requisição cancelada manualmente")
 			return
 		}
 
-		fmt.Println("Erro ao fazer request:", err)
+		fmt.Println("Erro ao fazer a requisição:", err)
 	}
 	fmt.Println("Dados recebidos:", data)
 }

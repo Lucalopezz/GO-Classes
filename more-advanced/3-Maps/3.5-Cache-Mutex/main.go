@@ -10,7 +10,7 @@ type Cache struct {
 	mu   sync.Mutex
 }
 
-// To not create a copy of the cache, we will return a pointer to it.
+// Para não criar uma cópia do cache, retornamos um ponteiro para ele.
 
 func NewCache() *Cache {
 	return &Cache{
@@ -18,7 +18,7 @@ func NewCache() *Cache {
 	}
 }
 
-// Reciver is a pointer to the cache, so we can modify the cache in place.
+// O receptor é um ponteiro para o cache, então podemos modificá-lo diretamente.
 
 func (c *Cache) Set(key string, value any) {
 	c.mu.Lock()
@@ -54,9 +54,9 @@ func main() {
 			defer wg.Done()
 			key, ok := cache.Get(fmt.Sprintf("key-%d", i))
 			if ok {
-				fmt.Printf("key: %s, value: %v\n", fmt.Sprintf("key-%d", i), key)
+				fmt.Printf("chave: %s, valor: %v\n", fmt.Sprintf("key-%d", i), key)
 			} else {
-				fmt.Printf("key: %s, value: not found\n", fmt.Sprintf("key-%d", i))
+				fmt.Printf("chave: %s, valor: não encontrado\n", fmt.Sprintf("key-%d", i))
 			}
 		}()
 	}

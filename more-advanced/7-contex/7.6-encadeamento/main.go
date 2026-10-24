@@ -14,7 +14,7 @@ const (
 )
 
 func escreverContexto(ctx context.Context, id string) {
-	fmt.Println("Timestamp:", ctx.Value(timestamp))
+	fmt.Println("Registro de tempo:", ctx.Value(timestamp))
 	fmt.Println("ID:", ctx.Value(id))
 }
 

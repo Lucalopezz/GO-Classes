@@ -6,17 +6,17 @@ func main() {
 	a := 10
 	b := &a
 
-	fmt.Println("Value of a:", a)             // Output: Value of a: 10
-	fmt.Println("Address of a:", &a)          // Output: Address of a: 0xc0000140b0 (example address)
-	fmt.Println("Value of b:", b)             // Output: Value of b: 0xc0000140b0 (example address)
-	fmt.Println("Value pointed to by b:", *b) // Output: Value pointed to by b: 10
+	fmt.Println("Valor de a:", a)            // Saída: Valor de a: 10
+	fmt.Println("Endereço de a:", &a)        // Saída: Endereço de a: 0xc0000140b0 (endereço de exemplo)
+	fmt.Println("Valor de b:", b)            // Saída: Valor de b: 0xc0000140b0 (endereço de exemplo)
+	fmt.Println("Valor apontado por b:", *b) // Saída: Valor apontado por b: 10
 
 	p := NewPerson("Alice", 30)
-	fmt.Printf("Person: %+v, Phone: %s\n", p, p.Phone()) // Output: Person: {Name:Alice Age:30 phone:<nil>}, Phone:
+	fmt.Printf("Pessoa: %+v, Telefone: %s\n", p, p.Phone()) // Saída: Pessoa: {Name:Alice Age:30 phone:<nil>}, Telefone:
 }
 
-// Capitalize the first letter of a struct field to make it exported and accessible from other packages.
-// Unexported fields (starting with a lowercase letter) are only accessible within the same package.
+// Use a primeira letra maiúscula em um campo da struct para exportá-lo e torná-lo acessível a outros pacotes.
+// Campos não exportados (que começam com letra minúscula) só podem ser acessados dentro do mesmo pacote.
 
 type Person struct {
 	Name  string
@@ -39,8 +39,8 @@ func (p Person) Phone() string {
 }
 
 func (p *Person) UpdateAge(newAge int) {
-	// Note: We are using a pointer receiver here, so we can modify the original struct.
-	// If we used a value receiver (p Person), we would be modifying a copy of the struct, and the original struct would remain unchanged.
+	// Observação: usamos um receptor ponteiro aqui para poder modificar a struct original.
+	// Se usássemos um receptor por valor (p Person), modificaríamos uma cópia da struct e a original permaneceria inalterada.
 	p.Age = newAge
 }
 

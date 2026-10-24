@@ -9,10 +9,10 @@ func main() {
 	copy(matrix2, matrix1)
 
 	matrix2[0][0] = 100
-	fmt.Println("matrix1:", matrix1) // Output: matrix1: [[100 2] [3 4]]
+	fmt.Println("matrix1:", matrix1) // Saída: matrix1: [[100 2] [3 4]]
 
-	// copy makes a copy of the external slice, but the internal slices are still shared between matrix1 and matrix2.
-	fmt.Println("Deep copy of matrix1:", deepCopyMatrix(matrix1))
+	// copy faz uma cópia do slice externo, mas os slices internos ainda são compartilhados entre matrix1 e matrix2.
+	fmt.Println("Cópia profunda de matrix1:", deepCopyMatrix(matrix1))
 }
 
 func deepCopyMatrix(matrix [][]int) [][]int {

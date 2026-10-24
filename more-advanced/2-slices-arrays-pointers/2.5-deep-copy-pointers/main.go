@@ -14,42 +14,42 @@ func main() {
 		Age:  30,
 	}
 
-	// Same logic with slices, if you create a person2 and assign person1 to it,
-	// it will copy the pointer to the name, not the value itself.
+	// A mesma lógica dos slices: se você criar person2 e atribuir person1 a ela,
+	// o ponteiro para o nome será copiado, não o valor em si.
 
 	person2 := person1
 
-	fmt.Println("Before change:")
-	fmt.Println("Person 1:", *person1.Nome, person1.Age)
-	fmt.Println("Person 2:", *person2.Nome, person2.Age)
+	fmt.Println("Antes da alteração:")
+	fmt.Println("Pessoa 1:", *person1.Nome, person1.Age)
+	fmt.Println("Pessoa 2:", *person2.Nome, person2.Age)
 
-	fmt.Println("\nAfter change:")
+	fmt.Println("\nApós a alteração:")
 
-	// afeter go 1.26, before go 1.26, you can use the new function `toPointer` to create a pointer to a string value.
+	// após o Go 1.26; antes do Go 1.26, você pode usar a função `toPointer` para criar um ponteiro para um valor string.
 	person2.Nome = new("Jane")
 
-	fmt.Println("Person 1:", *person1.Nome, person1.Age)
-	fmt.Println("Person 2:", *person2.Nome, person2.Age)
+	fmt.Println("Pessoa 1:", *person1.Nome, person1.Age)
+	fmt.Println("Pessoa 2:", *person2.Nome, person2.Age)
 
 	person3 := deepCopyPerson(person1)
 
-	fmt.Println("\nAfter deep copy:")
-	fmt.Println("Person 1:", *person1.Nome, person1.Age)
+	fmt.Println("\nApós a cópia profunda:")
+	fmt.Println("Pessoa 1:", *person1.Nome, person1.Age)
 	person3.Nome = new("Joseph")
-	fmt.Println("Person 3:", *person3.Nome, person3.Age)
+	fmt.Println("Pessoa 3:", *person3.Nome, person3.Age)
 
-	// With slices
+	// Com slices
 	personsList1 := []Person{person1, person2, person3}
 	personsList2 := deepCopyPersonsList(personsList1)
 
 	personsList2[0].Nome = new("Michael")
-	fmt.Println("\nAfter deep copy of persons list:")
-	fmt.Println("Persons List 1:", *personsList1[0].Nome, personsList1[0].Age)
-	fmt.Println("Persons List 2:", *personsList2[0].Nome, personsList2[0].Age)
+	fmt.Println("\nApós a cópia profunda da lista de pessoas:")
+	fmt.Println("Lista de pessoas 1:", *personsList1[0].Nome, personsList1[0].Age)
+	fmt.Println("Lista de pessoas 2:", *personsList2[0].Nome, personsList2[0].Age)
 }
 
-// With go 1.26, you can use the new function `toPointer` to create a pointer to a string value.
-// This is useful when you want to create a new pointer without having to declare a variable first.
+// Com Go 1.26, você pode usar a função `toPointer` para criar um ponteiro para um valor string.
+// Isso é útil quando você quer criar um novo ponteiro sem precisar declarar antes uma variável.
 //
 // func toPointer(s string) *string {
 // 	return &s

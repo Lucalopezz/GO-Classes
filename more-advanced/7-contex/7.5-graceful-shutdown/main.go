@@ -25,11 +25,11 @@ func main() {
 
 	e.GET("/slow", func(c echo.Context) error {
 		time.Sleep(5 * time.Second)
-		return c.String(200, "ok 5 secs")
+		return c.String(200, "ok após 5 segundos")
 	})
 
 	e.GET("/fast", func(c echo.Context) error {
-		return c.String(200, "ok fast")
+		return c.String(200, "ok rápido")
 	})
 
 	// Iniciar o servidor HTTP

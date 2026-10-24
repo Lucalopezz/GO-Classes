@@ -1,9 +1,9 @@
-// How this is a script the main can cause an warning in some IDEs, but it is a valid Go program.
-// The main function is the entry point of the program, and it is where the execution starts. In this case,
-// the main function is used to update the go.work file with all the modules found in the current directory and its subdirectories.
+// Como isto é um script, a função main pode gerar um aviso em algumas IDEs, mas é um programa Go válido.
+// A função main é o ponto de entrada do programa, onde a execução começa. Neste caso,
+// a função main atualiza o arquivo go.work com todos os módulos encontrados no diretório atual e em seus subdiretórios.
 package main
 
-// For build a script without a module, you need to use this command
+// Para compilar um script sem módulo, use este comando
 // GO111MODULE=off go build -o update-go-work update-go-work.go
 
 import (
@@ -26,42 +26,42 @@ func main() {
 		return nil
 	})
 	if err != nil {
-		fmt.Println("Error walking the path:", err)
+		fmt.Println("Erro ao percorrer o caminho:", err)
 		os.Exit(1)
 	}
 
 	if len(dirs) == 0 {
-		fmt.Println("No go.mod files found in the current directory or its subdirectories.")
+		fmt.Println("Nenhum arquivo go.mod encontrado no diretório atual ou em seus subdiretórios.")
 	}
 
-	// Decide between init or use
+	// Decide entre init e use
 	var cmd *exec.Cmd
 
 	if _, err := os.Stat("go.work"); os.IsNotExist(err) {
-		// If dont exist, initialize the workspace with all modules
+		// Se não existir, inicializa o espaço de trabalho com todos os módulos
 		args := append([]string{"work", "init"}, dirs...)
 		cmd = exec.Command("go", args...) // go work init <dirs...>
-		fmt.Println("Updating go work: %v\n", args)
+		fmt.Println("Atualizando go.work: %v\n", args)
 	} else {
-		// If already exists, use the workspace with all modules
+		// Se já existir, usa o espaço de trabalho com todos os módulos
 		args := append([]string{"work", "use"}, dirs...)
 		cmd = exec.Command("go", args...) // go work use <dirs...>
-		fmt.Println("Updating go work: %v\n", args)
+		fmt.Println("Atualizando go.work: %v\n", args)
 	}
 
-	// The command's standard output and standard error are set to the program's standard output and standard error.
+	// A saída e o erro padrão do comando são direcionados para a saída e o erro padrão do programa.
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 
-	// Go allows a short variable declaration before the condition in an if statement.
-	// The variable exists only inside the if/else scope.
+	// Go permite declarar uma variável antes da condição de um if.
+	// A variável existe apenas no escopo do if/else.
 	//
-	// Here, cmd.Run() is executed and its returned error is stored in err.
-	// If err is not nil, the command failed and the error-handling block is executed.
+	// Aqui, cmd.Run() é executado e o erro retornado é armazenado em err.
+	// Se err não for nil, o comando falhou e o bloco de tratamento de erro é executado.
 	if err := cmd.Run(); err != nil {
-		fmt.Println("Error running go command:", err)
+		fmt.Println("Erro ao executar o comando go:", err)
 		os.Exit(1)
 	}
 
-	fmt.Println("go.work file updated successfully.")
+	fmt.Println("Arquivo go.work atualizado com sucesso.")
 }

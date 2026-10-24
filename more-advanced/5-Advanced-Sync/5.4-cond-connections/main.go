@@ -28,7 +28,7 @@ func (p *PoolConn) ReleaseConn(conn int) {
 	defer p.mu.Unlock()
 
 	p.conn = append(p.conn, conn)
-	fmt.Printf("Released connection: %d\n", conn)
+	fmt.Printf("Conexão liberada: %d\n", conn)
 
 	p.cond.Signal()
 }
@@ -38,14 +38,14 @@ func (p *PoolConn) GetConn() int {
 	defer p.mu.Unlock()
 
 	for len(p.conn) == 0 {
-		fmt.Println("Waiting for connection...")
+		fmt.Println("Aguardando conexão...")
 		p.cond.Wait()
 	}
 
 	conn := p.conn[0]
 	p.conn = p.conn[1:]
 
-	fmt.Printf("Got connection: %d\n", conn)
+	fmt.Printf("Conexão obtida: %d\n", conn)
 	return conn
 }
 
@@ -59,12 +59,12 @@ func main() {
 		go func(id int) {
 			defer wg.Done()
 			conn := pool.GetConn()
-			fmt.Printf("Goroutine %d using connection: %d\n", id, conn)
+			fmt.Printf("Goroutine %d usando conexão: %d\n", id, conn)
 			time.Sleep(3 * time.Second)
 			pool.ReleaseConn(conn)
 		}(i)
 	}
 
 	wg.Wait()
-	fmt.Println("All goroutines finished.")
+	fmt.Println("Todas as goroutines terminaram.")
 }

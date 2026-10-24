@@ -11,13 +11,13 @@ func main() {
 
 	list := mySlice{1, 2, 3}
 
-	fmt.Println("New list: ", list.Map(func(i int) int { return i * 2 }))
-	fmt.Println("New list: ", list.Filter(func(i int) bool { return i%2 == 0 }))
-	fmt.Println("New list: ", list.Reduce(1, func(acc int, i int) int { return acc * i }))
+	fmt.Println("Nova lista: ", list.Map(func(i int) int { return i * 2 }))
+	fmt.Println("Nova lista: ", list.Filter(func(i int) bool { return i%2 == 0 }))
+	fmt.Println("Nova lista: ", list.Reduce(1, func(acc int, i int) int { return acc * i }))
 }
 
-// When we see generics, we can use them to create a generic filter function that works with any type.
-// However, in this case, we are using a specific type (mySlice) and a specific condition (filtering even numbers).
+// Quando virmos genéricos, poderemos usá-los para criar uma função de filtro genérica que funciona com qualquer tipo.
+// Porém, neste caso, usamos um tipo específico (mySlice) e uma condição específica (filtrar números pares).
 
 func (m mySlice) Filter(cond func(int) bool) mySlice {
 	var result mySlice

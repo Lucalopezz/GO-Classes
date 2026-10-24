@@ -32,5 +32,5 @@ func leitura(ctx context.Context) {
 		fmt.Println(v)
 		return
 	}
-	fmt.Println("key não encontrada")
+	fmt.Println("chave não encontrada")
 }

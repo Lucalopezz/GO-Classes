@@ -6,9 +6,9 @@ import (
 )
 
 func main() {
-	// Race condition occurs when multiple goroutines access a shared variable concurrently,
-	// Two or more go rotines can read can access the same variable at the same time, and if
-	// one of them is writing to it, it can cause a race condition.
+	// Uma condição de corrida ocorre quando várias goroutines acessam uma variável compartilhada concorrentemente,
+	// duas ou mais goroutines podem acessar a mesma variável ao mesmo tempo e, se
+	// uma delas estiver escrevendo nela, isso pode causar uma condição de corrida.
 
 	m := make(map[int]int)
 
@@ -17,8 +17,8 @@ func main() {
 	}
 	fmt.Println(m)
 
-	// Anonimous function to create a goroutine
-	// 2 goroutines are created to access the same map concurrently, which can cause a race condition.
+	// Função anônima para criar uma goroutine
+	// Duas goroutines são criadas para acessar o mesmo map concorrentemente, o que pode causar uma condição de corrida.
 	m2 := make(map[int]int)
 	go func() {
 		for i := 0; i < 1000; i++ {
@@ -27,8 +27,8 @@ func main() {
 	}()
 	go func() {
 		for i := 1000; i < 2000; i++ {
-			// even though the map is being written to by one goroutine, the other goroutine
-			// is trying to read from it at the same time, which can cause a race condition.
+			// embora uma goroutine esteja escrevendo no map, a outra goroutine
+			// tenta lê-lo ao mesmo tempo, o que pode causar uma condição de corrida.
 			fmt.Println(m2[i]) // m2[1000]
 		}
 	}()

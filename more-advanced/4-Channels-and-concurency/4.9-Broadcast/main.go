@@ -9,7 +9,7 @@ import (
 
 func consumer(id int, ch <-chan int) {
 	for val := range ch {
-		fmt.Printf("Consumer %d received: %d\n", id, val)
+		fmt.Printf("Consumidor %d recebeu: %d\n", id, val)
 	}
 }
 
@@ -32,5 +32,5 @@ func main() {
 
 	broadcast(channals, 42)
 
-	time.Sleep(1 * time.Second) // Wait for consumers to finish processing
+	time.Sleep(1 * time.Second) // Espera os consumidores terminarem o processamento
 }

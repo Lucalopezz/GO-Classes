@@ -4,27 +4,27 @@ import "fmt"
 
 func main() {
 	var (
-		// Dynamic array (slice) and static array
+		// Array dinâmico (slice) e array estático
 		slice = []int{1, 2, 3, 4, 5}
 		array = [5]int{1, 2, 3, 4, 5}
 	)
 
-	fmt.Println("size and capacity of slice:", len(slice), cap(slice))
+	fmt.Println("tamanho e capacidade do slice:", len(slice), cap(slice))
 
-	fmt.Println("size and capacity of array:", len(array), cap(array))
+	fmt.Println("tamanho e capacidade do array:", len(array), cap(array))
 
-	// Append returns a new slice with the new elements added to the end of the original slice.
-	// If the capacity of the original slice is not enough to accommodate the new elements,
-	// a new underlying array is allocated and the elements are copied over.
+	// Append retorna um novo slice com os novos elementos adicionados ao final do slice original.
+	// Se a capacidade do slice original não for suficiente para acomodar os novos elementos,
+	// um novo array subjacente é alocado e os elementos são copiados para ele.
 	slice = append(slice, 6, 7, 8)
 
-	fmt.Println("size and capacity of slice:", len(slice), cap(slice))
+	fmt.Println("tamanho e capacidade do slice:", len(slice), cap(slice))
 
 	printSlice(slice)
 }
 
-// You cant pass an array to a function that expects a slice
-// For pass an array to a function that expects a slice, you can use the slice operator [:] to convert the array to a slice.
+// Você não pode passar um array para uma função que espera um slice
+// Para passar um array a uma função que espera um slice, você pode usar o operador de slice [:] para convertê-lo em slice.
 // printSlice(array[:])
 func printSlice(slice []int) {
 	for _, item := range slice {

@@ -32,11 +32,11 @@ func worker(id int, lock *Lock, wg *sync.WaitGroup) {
 	lock.mu.Lock()
 
 	for !lock.locked {
-		logf(fmt.Sprintf("Worker %d is waiting for the lock", id))
+		logf(fmt.Sprintf("Trabalhador %d está aguardando o bloqueio", id))
 		lock.cond.Wait()
 	}
 
-	logf(fmt.Sprintf("Worker %d acquired the lock", id))
+	logf(fmt.Sprintf("Trabalhador %d adquiriu o bloqueio", id))
 	time.Sleep(1 * time.Second)
 }
 
@@ -56,7 +56,7 @@ func main() {
 	time.Sleep(2 * time.Second)
 	lock.mu.Lock()
 	lock.locked = true
-	logf("Main goroutine is broadcasting to all workers")
+	logf("A goroutine principal está notificando todos os trabalhadores")
 	lock.cond.Broadcast()
 	lock.mu.Unlock()
 
