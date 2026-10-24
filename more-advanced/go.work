@@ -47,4 +47,5 @@ use (
 	./7-contex/7.4-RequestHTTP
 	./7-contex/7.5-graceful-shutdown
 	./7-contex/7.6-encadeamento
+	./7-contex/7.7-contexto-personalizado
 )
