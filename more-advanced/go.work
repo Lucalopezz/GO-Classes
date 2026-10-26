@@ -53,4 +53,5 @@ use (
 	./8-profiling/8.3-allocs
 	./8-profiling/8.4-goroutines
 	./8-profiling/8.5-threads
+	./9-Teste/9.1-intro
 )
